@@ -1,2 +1,2 @@
-# PEC
+# Programação Estruturada de Computadores
  
