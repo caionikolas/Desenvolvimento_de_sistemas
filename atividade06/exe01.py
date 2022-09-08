@@ -1,0 +1,11 @@
+valor01 = input()
+valor02 = input()
+soma = float(valor01) + float(valor02)
+concatenacao = str(float(valor01)) + valor02
+multiNumber = float(valor01) * float(valor02)
+multiString = str(float(valor01)) * int(valor02)
+divisao = float(valor01) / float(valor02)
+divisaoInteira = float(valor01) // float(valor02)
+Expor = float(valor01) ** float(valor02)
+resto = float(valor01) % float(valor02)
+print('{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}'.format(soma, concatenacao, multiNumber, multiString, divisao, divisaoInteira, Expor, resto))
