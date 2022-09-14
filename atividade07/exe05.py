@@ -1,19 +1,8 @@
-numero = int(input())
+valor = int(input())
 
-def inverter(valor):
-    return 
+milhar = valor // 1000
+centena = (valor // 100) - (milhar*10)
+dezena = (valor // 10) - (milhar*100) - (centena*10)
+unidade = valor - (milhar*1000) - (centena*100) - (dezena*10)
 
-invertido
-
-
-
-
-valor = 2000
-teste = (1000<=a>=9999)
-
-print(teste)
-
-try except
-
-
-def caractere()
+print (f'{unidade}{dezena}{centena}{milhar}')

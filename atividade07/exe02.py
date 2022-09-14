@@ -9,4 +9,4 @@ def perimetro(a):
 areaQuadrado = area(lado)
 perimetroQuadrado = perimetro(lado)
 
-print ('{}\n{}'.format(areaQuadrado,perimetroQuadrado))
+print(f'{areaQuadrado: >10.4f}\n{perimetroQuadrado: >10.4f}')
