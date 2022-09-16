@@ -1,9 +1,9 @@
-altura = float(input())
-comprimento = float(input())
-largura = float(input())
+altura = float(input("Digite a altura:"))
+comprimento = float(input("Digite o comprimento:"))
+largura = float(input("Digite a largura:"))
 areaPiso = largura*comprimento
-print('{}'.format(areaPiso))
+print('A area do piso é {}!'.format(areaPiso))
 volumeSala = largura*comprimento*altura
-print('{}'.format(volumeSala))
+print('O volume da sala é {}!'.format(volumeSala))
 AreaParedes = 2*altura*largura + 2*altura*comprimento
-print('{}'.format(AreaParedes))
+print('A area das paredes da sala é {}!'.format(AreaParedes))
