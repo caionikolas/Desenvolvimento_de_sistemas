@@ -1,5 +1,5 @@
-preco = float(input())
-percentual = (float(input()))
+preco = float(input("Digite o preço: "))
+percentual = (float(input("Digite o valor percentual: ")))
 
 def precoAcrescido (preco, percen):
     return preco + preco*(percentual/100)
@@ -10,4 +10,4 @@ def precoDesconto (preco, percen):
 precoAumento = precoAcrescido(preco, percentual)
 precoDescontado = precoDesconto(preco, percentual)
 
-print(f'{precoAumento:.2f}\n{precoDescontado:.2f}')
+print(f'Preço com aumento: {precoAumento:.2f}\nPreço com desconto {precoDescontado:.2f}')
