@@ -15,7 +15,7 @@ def main():
         mediaNotas = 10
 
     #saída de dados
-    print(f'A média das notas é: {mediaNotas}')
+    print(f'A média das notas é: {mediaNotas}!')
 
 if __name__ == '__main__':
     main()
