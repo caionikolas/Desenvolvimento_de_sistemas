@@ -26,8 +26,8 @@ def Signo (dia, mes):
 
 def main():
     #Entrada de dados
-    dia = int(input())
-    mes = int(input())
+    dia = int(input("Digite seu dia de nascimento: "))
+    mes = int(input("Digite seu mes de nascimento: "))
     
     #Processamento
     signo = Signo(dia, mes)
