@@ -1,16 +1,16 @@
 def main():
   #Entrada de dados
-  number01 = int(input())
-  number02 = int(input())
-  number03 = int(input())
-  number04 = int(input())
-  number05 = int(input())
+  number01 = int(input('Digite o primeiro número: '))
+  number02 = int(input('Digite o segundo número: '))
+  number03 = int(input('Digite o terceiro número: '))
+  number04 = int(input('Digite o quarto número: '))
+  number05 = int(input('Digite o quinto número: '))
 
   #Processamento
   media = ((number01 + number02 + number03 + number04 + number05)/5)
 
   #Saída de dados
-  print(media)
+  print(f'A média dos números é {media}\nos números maiores que a média são:')
   if number01 > media:
     print(number01)
   if number02 > media:

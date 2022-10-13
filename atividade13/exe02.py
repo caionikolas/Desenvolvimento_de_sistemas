@@ -1,11 +1,11 @@
 def main():
   #Entrada de dados
-  day01 = int(input())
-  mes01 = int(input())
-  year01 = int(input())
-  day02 = int(input())
-  mes02 = int(input())
-  year02 = int(input())
+  day01 = int(input('Digite o valor do dia 01: '))
+  mes01 = int(input('Digite o valor do mes 01: '))
+  year01 = int(input('Digite o valor do ano 01: '))
+  day02 = int(input('Digite o valor do dia 02: '))
+  mes02 = int(input('Digite o valor do mes 02: '))
+  year02 = int(input('Digite o valor do ano 02: '))
 
   #Processamento
   yearLarger = 0
@@ -33,15 +33,17 @@ def main():
         yearLarger = year01
         mesLarger = mes01
         dayLarger = day01
-      elif day02 < day01:
+      elif day02 > day01:
         yearLarger = year02
         mesLarger = mes02
         dayLarger = day02
       else:
-        'As duas datas são iguais!'
+        yearLarger = year02
+        mesLarger = mes02
+        dayLarger = day02
 
   #Saída de dados
-  print(yearLarger, mesLarger, dayLarger)
+  print(f'{dayLarger}/{mesLarger}/{yearLarger}')
 
 if __name__ == '__main__':
   main()

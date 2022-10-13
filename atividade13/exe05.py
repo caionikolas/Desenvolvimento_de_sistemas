@@ -1,16 +1,16 @@
-def imc(p, a):
+def indice(p, a):
   return p/(a**2)
 
 def main():
   #Entrada de dados
-  peso = float(input())
-  altura = float(input())
+  peso = float(input('Digite seu peso: '))
+  altura = float(input('Digite sua altura: '))
 
   #Processamento
-  imc = imc(peso, altura)
+  imc = indice(peso, altura)
   classificacao = 0
   if imc < 18.5:
-    classificacao = 'Acima do peso'
+    classificacao = 'Abaixo do peso'
   elif imc < 25:
     classificacao = 'Peso normal'
   elif imc < 30:
@@ -23,7 +23,7 @@ def main():
     classificacao = 'Obeso mórbido'
 
   #Saída de dados
-  print(classificacao)
+  print(f'Seu imc é {imc:.0f}!\nVocê foi classificado como {classificacao}!')
 
 if __name__ == '__main__':
   main()
