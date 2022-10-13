@@ -1,14 +1,14 @@
 def Qdigitos(a, b):
     count = 0
-    if a % 2 == 0:
+    if a % 2 != 0:
         count += 1
-    if b % 2 == 0:
+    if b % 2 != 0:
         count += 1
     return count
 
 def main():
     #Entrada de dados
-    numero = int(input())
+    numero = int(input('Digite um número: '))
 
     #Processamento
     dezena = numero//10

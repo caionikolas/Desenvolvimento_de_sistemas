@@ -1,35 +1,37 @@
+def Signo (dia, mes):
+    if mes == 3:
+        return 'Peixes' if dia < 21 else 'Áries'
+    elif mes == 4:
+        return 'Áries' if dia < 20 else 'Touro'
+    elif mes == 5:
+        return 'Touro' if dia < 21 else 'Gêmeos'
+    elif mes == 6:
+        return 'Gêmeos' if dia < 22 else 'Câncer'
+    elif mes == 7:
+        return 'Câncer' if dia < 23 else 'Leão!'
+    elif mes == 8:
+        return 'Leão' if dia < 23 else 'Virgem'
+    elif mes == 9:
+        return 'Virgem' if dia < 23 else 'Libra'
+    elif mes == 10:
+        return 'Libra' if dia < 23 else 'Escorpião'
+    elif mes == 11:
+        return 'Escorpião' if dia < 22 else 'Sagitário'
+    elif mes == 12:
+        return 'Sagitário' if dia < 22 else 'Capricórnio!'
+    elif mes == 1:
+        return 'Capricórnio' if dia < 20 else 'Aquário'
+    elif mes == 2:
+        return 'Aquário' if dia < 19 else 'Peixes'
+
 def main():
     #Entrada de dados
-    Dia = input()
-    Mes = input()
+    dia = int(input())
+    mes = int(input())
     
     #Processamento
-    Dnascimento = int(Dia+Mes)
-    if 2103 <= Dnascimento <= 1904:
-        signo = 'Aries'
-    elif 2004 <= Dnascimento <= 2005:
-        signo = 'Touro'
-    elif 2105 <= Dnascimento <= 2106:
-        signo = 'Gemeos'
-    elif 2206 <= Dnascimento <= 2207:
-        signo = 'Cancer'
-    elif 2307 <= Dnascimento <= 2208:
-        signo = 'Leão'
-    elif 2308 <= Dnascimento <= 2209:
-        signo = 'Virgem'
-    elif 2309 <= Dnascimento <= 2210:
-        signo = 'Libra'
-    elif 2310 <= Dnascimento <= 2111:
-        signo = 'Escorpião'
-    elif 2211 <= Dnascimento <= 2112:
-        signo = 'Sagitário'
-    elif 2212 <= Dnascimento <= 1901:
-        signo = 'Capricónio'
-    elif 2001 <= Dnascimento <= 1802:
-        signo = 'Aquário'
-    else:
-        signo = 'Peixes'
-
+    signo = Signo(dia, mes)
+    
     #saída de dados
     print(signo)
 
