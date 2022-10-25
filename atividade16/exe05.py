@@ -1,10 +1,9 @@
 def main():
   maior = int(input())
-  for i in range(2):
+  for i in range(99):
     num = int(input())
     if num > maior:
       maior = num
-    else:
   
   print(f'{maior}')
 
