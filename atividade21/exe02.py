@@ -5,8 +5,8 @@ def main():
   while True:
     if Vpop >= Vcar:
       break
-    Vcar += (Vcar*0.04)
-    Vpop += (Vpop*0.07)
+    Vcar += (Vcar*0.004)
+    Vpop += (Vpop*0.007)
     mes += 1
   
   print(mes)
