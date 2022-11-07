@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <h1>Dados Pessoais</h1>
+
+    <form action="resposta.html" method="post">
+        Nome: <input type="text" name="none" size="20" maxlength="40" value="Digite o nome"><br>
+        Senha: <input type="password" name="senha" size="10" maxlength="10"><br>
+        Endereço: <input type="text" name="endereco" size="40" maxlength="40" placeholder="Digite o endereco"><br>
+        <br>
+        Hobbies: <br>
+            <input type="checkbox" name="hobbies" value="pescar">Pescar <br>
+            <input type="checkbox" name="hobbies" value="pescar">Dancar <br>
+            <input type="checkbox" name="hobbies" value="pescar" checked>Correr <br>
+        <br>
+        Sexo: <br>
+            <input type="radio" name="sexo" value="M" checked>Masculino <br>
+            <input type="radio" name="sexo" value="F">Feminino <br>
+        <br>
+        Comentarios: <br>
+            <textarea cols="40" rows="10" name="comentarios" placeholder="Digite seu comentário"></textarea><br><br>
+        <br>
+        Estado:
+            <select name="estado">
+                <option value="">  </option>
+                <option value="ce">Ceara</option>
+                <option value="ma">Maranhão</option>
+                <option value="pi">Piauí</option>
+            </select> <br>
+        <br>
+        <input type="submit" name="enviar" value="Enviar Dados"> 
+        <input type="reset" name="limpar" value="Limpar Campos">
+    </form>
+</body>
+</html>
