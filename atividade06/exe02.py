@@ -1,5 +1,5 @@
-anos = int(input("Digite o ano!"))
-meses = int(input("Digite os meses!"))
-dias = int(input("Digite os dias!"))
+anos = int(input("Digite o ano: "))
+meses = int(input("Digite os meses: "))
+dias = int(input("Digite os dias: "))
 idadeDias = ((anos*365)+(meses*30)+dias)
 print (f'Sua idade em dias é {idadeDias}!')

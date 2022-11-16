@@ -1,4 +1,4 @@
-lado = float(input("Digite o lado de um quadrado!"))
+lado = float(input("Digite o lado de um quadrado: "))
 
 def area(a):
     return a**2

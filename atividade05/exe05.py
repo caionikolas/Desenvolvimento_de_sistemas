@@ -1,6 +1,6 @@
-altura = float(input("Digite a altura:"))
-comprimento = float(input("Digite o comprimento:"))
-largura = float(input("Digite a largura:"))
+altura = float(input("Digite a altura: "))
+comprimento = float(input("Digite o comprimento: "))
+largura = float(input("Digite a largura: "))
 areaPiso = largura*comprimento
 print('A area do piso é {}!'.format(areaPiso))
 volumeSala = largura*comprimento*altura

@@ -1,4 +1,4 @@
-raio = float(input("Digite o raio!"))
+raio = float(input("Digite o raio: "))
 pi = 3.141592
 circunferencia = 2*pi*raio
 area = pi*raio**2
