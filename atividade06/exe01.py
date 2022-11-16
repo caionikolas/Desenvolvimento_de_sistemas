@@ -1,4 +1,4 @@
-valor01 = input("Digite o valor 1!")
+valor01 = input("Digite o valor 1: ")
 valor02 = input("Digite o valor 2!")
 soma = float(valor01) + float(valor02)
 concatenacao = str(float(valor01)) + valor02
