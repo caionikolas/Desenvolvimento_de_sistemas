@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <style>
+    .header{
+      display: flex;
+      border: 1px solid black;
+      padding: 1rem;
+      margin-bottom: 4px;
+    }
+    img{
+      height: 90px;
+      margin: 0 1rem;
+    }
+    .nav{
+      border: 1px solid black;
+      padding: 1rem;
+      margin-bottom: 4px;
+    }
+    span{
+      margin-right: 1rem;
+    }
+    .main{
+      height: 70vh;
+      border: 1px solid black;
+      margin-bottom: 4px;
+      position: relative;
+    }
+    .main .dados_pessoais{
+      display: flex;
+      padding: 1rem;
+      border: 1px black solid;
+      margin: 1.5rem 1rem;
+    }
+    .dp{
+      position: absolute;
+      background-color: white;
+      left: 50vw;
+      top: 15px;
+    }
+    .footer{
+      height: 5vh;
+      border: 1px solid black;
+      padding-left: 1rem;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="image/delta.png"><h1>Formulário de Associação</h1>
+  </div>
+
+  <div class="nav">
+    <span><a href="index.html">Home</a></span>
+    <span><a href="cadastro.html">Cadastro</a></span>
+    <span><a href="#">Pagamento</a></span>
+  </div>
+
+  <div class="main">
+    <span class="dp">DADOS PESSOAIS</span>
+    <div class="dados_pessoais">
+      <table>
+        <tr>
+          <td>CPF:</td>
+          <td><input type="number" name="cpf"></td>
+          <td>(apenas números)</td>
+        </tr>
+        <tr>
+          <td>Nome:</td>
+          <td><input type="text" name="nome"></td>
+        </tr>
+        <tr>
+          <td>Nacionalidade:</td>
+          <td><input type="text" name="nacionalidade"></td>
+        </tr>
+        <tr>
+          <td>Tipo Associação:</td>
+          <td><select name="tipo_associacao"><option value="estudante">Estudante (R$ 15,00 por ano)</option></select></td>
+        </tr>
+        <tr>
+          <td>RG:</td>
+          <td><input type="number" name="rg"></td>
+          <td>Emissor RG:</td>
+          <td><input type="text" name="emissor_rg"></td>
+        </tr>
+      </table>
+      <table>
+        <tr>
+          <td>Nascimento:</td>
+          <td><input type="date" name="nascimento"></td>
+        </tr>
+        <tr>
+          <td>Naturalidade:</td>
+          <td><input type="text" name="naturalidade"></td>
+          <td><select name="naturalidade_estado"><option value="pi">PI</option></select></td>
+        </tr>
+        <tr>
+          <td>Estado Civil:</td>
+          <td><select name="estado_civil"><option value="casado">Casado</option><option value="solteiro">Solteiro</option></select></td>
+        </tr>
+        <tr>
+          <td>Instituição:</td>
+          <td><input type="text" name="instituicao"></td>
+          <td>(universidade, faculdade, empresa, etc.)</td>
+        </tr>
+        <tr>
+          <td>Profissão:</td>
+          <td><input type="text" name="profissao"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2015 Instituto Delta. All rights reserved</p>
+  </div>
+</body>
+</html>
