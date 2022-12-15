@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <style>
+    body{
+      font-family: arial;
+    }
+    h1{
+      display: flex;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 5vh;
+      margin-top: 5rem;
+    }
+    .login{
+      display: grid;
+      background-color: #eeeeee;
+      width: max-content;
+      position: absolute;
+      margin-top: 5vh;
+      font-size: larger;
+    }
+    h3{
+      font-weight: bold;
+    }
+    .manutencao{
+      font-size: larger;
+    }
+  </style>
+</head>
+<body>
+  <h1>e-Compras</h1>
+  <div class="login">
+    <span>Produtos</span>
+    <span> - [<a href="#">Inclusão</a>]</span>
+    <span>Relatórios</span>
+    <span> - [<a href="#">Por usuário</a>]</span>
+    <hr>
+    <span>Manutenção</span>
+    <span> - [<a href="#">Usuários</a>]</span>
+    <hr>
+    <span> - [<a href="#">Alterar senha</a>]</span>
+    <span> - [<a href="index.html">Sair</a>]</span>
+  </div>
+
+  <div class="manutencao">
+    <table align="center">
+      <h3 align="center">Manutenção de Usuário</h3>
+      <form action="#" method="post" align="center">
+        <tr>
+          <td align="right">Matricula(*):</td>
+          <td><input type="number" name="matricula"></td>
+        </tr>
+        <tr>
+          <td align="right">Login(*):</td>
+          <td><input type="email" name="email"></td>
+        </tr>
+        <tr>
+          <td align="right">Nome(*):</td>
+          <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+          <td align="right">Senha(*):</td>
+          <td><input type="password" name="password"></td>
+        </tr>
+        <tr>
+          <td align="right">Confirme Senha(*):</td>
+          <td><input type="password" name="cpassword"></td>
+        </tr>
+        <tr>
+          <td align="right">Órgão(*):</td>
+          <td><select name="ordem"></select></td>
+        </tr>
+        <tr>
+          <td align="right">Supervisor(*):</td>
+          <td><select name="supervisor"></select></td>
+        </tr>
+        <tr>
+          <td align="right">Tipo Usuário(*):</td>
+          <td><select name="t_usuario"></select></td>
+        </tr>
+        <tr>
+          <td align="right">Situação(*):</td>
+          <td><select name="sutiacao"><option value="ativo">Ativo</option></select></td>
+        </tr>
+        <tr>
+          <td><br>(*)Campo obrigatório</td>
+        </tr>
+        <tr>
+          <td><br><input type="submit" value="Confirmar">&nbsp; &nbsp; &nbsp;<input type="reset" value="Limpar"></td>
+        </tr>
+      </form>
+    </table>
+    
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      
+    </form>
+  </div>
+</body>
+</html>
