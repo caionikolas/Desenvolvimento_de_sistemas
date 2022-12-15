@@ -12,42 +12,148 @@
       padding: 1rem;
       margin-bottom: 4px;
     }
-    img{
-      height: 90px;
-      margin: 0 1rem;
-    }
+
+      .header img{
+        height: 90px;
+        margin: 0 1rem;
+      }
+
     .nav{
       border: 1px solid black;
       padding: 1rem;
       margin-bottom: 4px;
     }
-    span{
-      margin-right: 1rem;
-    }
+
+      .nav span{
+        margin-right: 1rem;
+      }
+
     .main{
       height: 70vh;
       border: 1px solid black;
       margin-bottom: 4px;
       position: relative;
     }
-    .main .dados_pessoais{
-      display: flex;
-      padding: 1rem;
-      border: 1px black solid;
-      margin: 1.5rem 1rem;
-    }
-    .dp{
-      position: absolute;
-      background-color: white;
-      left: 50vw;
-      top: 15px;
-    }
+
+      .main table{
+        width: 100%;
+      }
+
+      .main .dados_pessoais,
+      .main .dados_contato{
+        display: flex;
+        padding: 1rem;
+        border: 1px black solid;
+        margin: 1.5rem 1rem;
+      }
+
+      .main .dp{
+        position: absolute;
+        background-color: white;
+        left: 50vw;
+        top: 15px;
+      }
+
+        .main .dados_pessoais .cpf{
+        width: 40%;
+        }
+
+        .main .dados_pessoais .a_numeros,
+        .main .dados_pessoais .nome,
+        .main .dados_pessoais .rg,
+        .main .dados_pessoais .emissor_rg,
+        .main .dados_pessoais .naturalidade,
+        .main .dados_pessoais .insti
+        .main .dados_pessoais .profissao{
+          position: relative;
+        }
+
+        .main .dados_pessoais .a_numeros{
+          right: 225px;
+        }
+
+        .main .dados_pessoais .nome{
+          width: 100%;
+        }
+
+        .main .dados_pessoais .estudante{
+          width: 80%;
+        }
+
+        .main .dados_pessoais .rg{
+          right: 50px;
+        }
+
+        .main .dados_pessoais .emissor_rg{
+          right: 135px;
+        }
+
+        .main .dados_pessoais .naturalidade{
+          width: 98%;
+        }
+
+        .main .dados_pessoais .insti{
+          position: relative;
+          width: 115%;
+        }
+
+        .main .dados_pessoais .profissao{
+          position: relative;
+          width: 98%;
+        }
+
+      .main .dc{
+        position: absolute;
+        background-color: white;
+        left: 50vw;
+        top: 199px;
+      }
+
+      .main .submit{
+        display: flex;
+        margin: 1.5rem 1rem;
+      }
+
     .footer{
       height: 5vh;
       border: 1px solid black;
       padding-left: 1rem;
     }
+    
+    .dados_pessoais input,
+    .dados_pessoais select{
+      position: relative;
+      right: 55px;
+    }
 
+    .dados_contato input,
+    .dados_contato select{
+      position: relative;
+      right: 110px;
+    }
+
+    .main .dados_contato .logra{
+      width: 72%;
+    }
+
+    .main .dados_contato .ap{
+      position: relative;
+      right: 335px;
+    }
+
+    .main .dados_contato .num{
+      width: 10%;
+    }
+
+    .main .dados_contato .bairro{
+      width: 50%;
+    }
+
+    
+    .main .dados_contato .pi{
+      position: relative;
+      right: 279px;
+    }
 
   </style>
 </head>
@@ -65,31 +171,32 @@
   <div class="main">
     <span class="dp">DADOS PESSOAIS</span>
     <div class="dados_pessoais">
-      <table>
-        <tr>
-          <td>CPF:</td>
-          <td><input type="number" name="cpf"></td>
-          <td>(apenas números)</td>
-        </tr>
-        <tr>
-          <td>Nome:</td>
-          <td><input type="text" name="nome"></td>
-        </tr>
-        <tr>
-          <td>Nacionalidade:</td>
-          <td><input type="text" name="nacionalidade"></td>
-        </tr>
-        <tr>
-          <td>Tipo Associação:</td>
-          <td><select name="tipo_associacao"><option value="estudante">Estudante (R$ 15,00 por ano)</option></select></td>
-        </tr>
-        <tr>
-          <td>RG:</td>
-          <td><input type="number" name="rg"></td>
-          <td>Emissor RG:</td>
-          <td><input type="text" name="emissor_rg"></td>
-        </tr>
-      </table>
+        <table>
+          <tr>
+            <td>CPF:</td>
+            <td><input type="number" name="cpf" class="cpf"></td>
+            <td class="a_numeros">(apenas números)</td>
+          </tr>
+          <tr>
+            <td>Nome:</td>
+            <td><input type="text" name="nome" class="nome"></td>
+          </tr>
+          <tr>
+            <td>Nacionalidade:</td>
+            <td ><input type="text" name="nacionalidade" ></td>
+          </tr>
+          <tr>
+            <td>Tipo Associação:</td>
+            <td><select name="tipo_associacao" class="estudante"><option value="estudante">Estudante (R$ 15,00 por ano)</option></select></td>
+          </tr>
+          <tr>
+            <td>RG:</td>
+            <td><input type="number" name="rg"></td>
+            <td class="rg">Emissor RG:</td>
+            <td><input type="text" name="emissor_rg" class="emissor_rg"></td>
+          </tr>
+        </table>
+      
       <table>
         <tr>
           <td>Nascimento:</td>
@@ -97,7 +204,7 @@
         </tr>
         <tr>
           <td>Naturalidade:</td>
-          <td><input type="text" name="naturalidade"></td>
+          <td><input type="text" name="naturalidade" class="naturalidade"></td>
           <td><select name="naturalidade_estado"><option value="pi">PI</option></select></td>
         </tr>
         <tr>
@@ -106,14 +213,61 @@
         </tr>
         <tr>
           <td>Instituição:</td>
-          <td><input type="text" name="instituicao"></td>
+          <td><input type="text" name="instituicao" class="insti"></td>
           <td>(universidade, faculdade, empresa, etc.)</td>
         </tr>
         <tr>
           <td>Profissão:</td>
-          <td><input type="text" name="profissao"></td>
+          <td><input type="text" name="profissao" class="profissao"></td>
         </tr>
       </table>
+    </div>
+
+    <div class="dados_contato">
+      <span class="dc">DADOS PARA CONTATO</span>
+      <table>
+        <tr>
+          <td>Logradouro:</td>
+          <td><input type="text" name="logradouro" class="logra"></td>
+        </tr>
+        <tr>
+          <td>Complemento:</td>
+          <td><input type="text" name="complemento" class="logra"></td>
+        </tr>
+        <tr>
+          <td>CEP:</td>
+          <td><input type="text" name="cep" ></td>
+          <td class="ap">(Apenas números)</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" name="email" class="logra"></td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <td>Número:</td>
+          <td><input type="number" name="numero" class="num"></td>
+        </tr>
+        <tr>
+          <td>Bairro:</td>
+          <td><input type="text" name="bairro" class="bairro"></td>
+        </tr>
+        <tr>
+          <td>Cidade:</td>
+          <td><input type="text" name="cidade" class="bairro"></td>
+          <td  class="pi"><select name="cidade_estado"><option value="pi">PI</option></select></td>
+        </tr>
+        <tr>
+          <td>Telefone:</td>
+          <td><input type="number" name="telefone" class="bairro"></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="submit">
+      <input type="submit" value="Confirmar">
     </div>
   </div>
 
