@@ -6,27 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cidades</title>
   <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      border: 0;
+    }
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      margin-top: 10vh;
+      height: 100vh;
+      background-color: rgb(215, 224, 250);
+      font-weight: bold;
+    }
+    .table{
+      display: flex;
+      justify-content: center;
+      width: 600px;
+      height: max-content;
+      background-color: #C7E7F3;
+    }
     table{
-      background-color: antiquewhite;
+      width: 600px;
+    }
+    p{
+      text-align: center;
+    }
+    p,
+    .comment{
+      color: white;
+      background-color: #0D5188;
+    }
+
+    .cidade{
+      color: #0D5188;
+      
+    }
+    .posicao{
+      background-color: silver;
+      text-align: center;
+      font-weight: normal;
+      width: 60px;
+    }
+    .populacao{
+      font-weight: normal;
+      width: 90px;
+    }
+    .colunas{
+      background-color: #66C5E3;
     }
   </style>
 </head>
 <body>
-  <table>
-    <tr>
-      <td>
-        Cidades mais populosas da Bahia <br>
-        (estimativa de 2009 do Instituto Brasileiro de Geografia e Estatística)
-      </td>
-    </tr>
-    <tr>
-      <td>Posição</td>
-      <td>Cidade</td>
-      <td>Pop.</td>
-      <td>Posição</td>
-      <td>Cidade</td>
-      <td>Pop.</td>
-    </tr>
-  </table>
+  <div class="table">
+    <table align="center">
+      <tr>
+        <td colspan="6">
+          <p>Cidades mais populosas da Bahia</p>
+          <p class="comment">(estimativa de 2009 do Instituto Brasileiro de Geografia e Estatística)</p>
+        </td>
+      </tr>
+      <tr>
+        <td class="colunas">Posição</td>
+        <td class="colunas">Cidade</td>
+        <td class="colunas">Pop.</td>
+        <td class="colunas">Posição</td>
+        <td class="colunas">Cidade</td>
+        <td class="colunas">Pop.</td>
+      </tr>
+      <tr>
+        <td class="posicao">1</td>
+        <td class="cidade">Salvador</td>
+        <td class="populacao">2 998 056</td>
+        <td class="posicao">3</td>
+        <td class="cidade">Vitoria da Conquista</td>
+        <td class="populacao">318 901</td>
+      </tr>
+      <tr>
+        <td class="posicao">2</td>
+        <td class="cidade">Feira de Santana</td>
+        <td class="populacao">591 707</td>
+        <td class="posicao">4</td>
+        <td class="cidade">Juazeiro</td>
+        <td class="populacao">243 896</td>
+      </tr>
+    </table>
+  </div>
+
 </body>
 </html>
