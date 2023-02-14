@@ -31,7 +31,7 @@ body{
 
 header nav{
   background-color: var(--preto);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -39,6 +39,7 @@ header nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 
   header nav .logo{
@@ -86,15 +87,15 @@ header nav{
         width: 50%;
       }
 
-.apresentacao{
-  z-index: 2000;
+.introduction{
+  z-index: 50;
   position: absolute;
   bottom: 14%;
   color: var(--branco);
   padding: 0 8%;
 }
 
-  .apresentacao h1{
+  .introduction h1{
     width: 60%;
     font-size: 180px;
     line-height: 160px;
@@ -114,12 +115,12 @@ header nav{
     }
   }
 
-  .apresentacao p{
+  .introduction p{
     font-size: 20px;
     font-weight: 500;
   }
 
-  .apresentacao h3{
+  .introduction h3{
     font-size: 25px;
     font-weight: 600;
     width: 58%;
@@ -134,4 +135,60 @@ header nav{
   border-radius: 50%;
   padding: 3px;
   background: var(--preto);
+}
+
+#about,
+#skills,
+#works,
+#suggestions{
+  background-color: var(--verde);
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+}
+
+#about{
+  top: 100vh;
+}
+
+  #about .about_image img{
+    position: absolute;
+    top: 25%;
+    left: 18%;
+    width: 350px;
+    height: 350px;
+    border-radius: 10%;
+    padding: 3px;
+    background: var(--preto);
+  }
+
+  #about .text{
+    position: absolute;
+    top: 28%;
+    left: 40%;
+    width: 30%;
+  }
+
+#skills{
+  top: 175vh;
+}
+
+  #skills img{
+    width: 100px;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--preto);
+  }
+
+  #skills .spacing img {
+    border-radius: 10%;
+    opacity: 0;
+  }
+
+#works{
+  top: 300vh;
+}
+
+#suggestions{
+  top: 400vh;
 }
