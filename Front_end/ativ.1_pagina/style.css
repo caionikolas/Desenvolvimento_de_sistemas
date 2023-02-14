@@ -185,9 +185,40 @@ header nav{
     opacity: 0;
   }
 
+  #skills .in{
+    color: #F2D680;
+    animation: toin 10s linear infinite;
+  }
+
+  @keyframes toin{
+    from{
+      transform: translateX(-105px);
+    }
+
+    to{
+      transform: translateX(100vw);
+    }
+  }
+
+  #skills .out{
+    animation: toout 20s linear infinite;
+  }
+
+  @keyframes toout{
+    from{
+      transform: translateX(100vw);
+    }
+
+    to{
+      transform: translateX(-105px);
+    }
+  }
+
 #works{
   top: 300vh;
 }
+
+
 
 #suggestions{
   top: 400vh;
