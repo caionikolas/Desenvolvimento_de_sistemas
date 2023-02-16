@@ -26,7 +26,7 @@
 
 body{
   min-height: 100vh;
-  background: linear-gradient(180deg, #075E54, #128C7E);
+  background: var(--verde);
 }
 
 header nav{
@@ -148,7 +148,7 @@ header nav{
 }
 
 #about{
-  top: 100vh;
+  top: 90vh;
 }
 
   #about .about_image img{
@@ -167,17 +167,31 @@ header nav{
     top: 28%;
     left: 40%;
     width: 30%;
+    font-size: 17px;
+    font-weight: 600;
   }
 
 #skills{
   top: 175vh;
 }
 
+  #skills .section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+  }
+
   #skills img{
-    width: 100px;
+    width: 150px;
     border-radius: 50%;
     padding: 2px;
     background: var(--preto);
+  }
+
+  #skills img:hover{
+    border-radius: 50%;
+    animation: pump 1s both;
   }
 
   #skills .spacing img {
@@ -185,41 +199,64 @@ header nav{
     opacity: 0;
   }
 
-  #skills .in{
-    color: #F2D680;
-    animation: toin 10s linear infinite;
-  }
-
-  @keyframes toin{
+  @keyframes pump{
     from{
-      transform: translateX(-105px);
+      
     }
-
     to{
-      transform: translateX(100vw);
-    }
-  }
-
-  #skills .out{
-    animation: toout 20s linear infinite;
-  }
-
-  @keyframes toout{
-    from{
-      transform: translateX(100vw);
+      transform: scale(1.6);
+      border-radius: 10%;
     }
 
-    to{
-      transform: translateX(-105px);
-    }
   }
 
 #works{
-  top: 300vh;
+  top: 265vh;
 }
 
+  #works .espaco,
+  #skills .espaco{
+    background: transparent;
+    height: 140px;
+  }
 
+  #skills .espaco{
+    height: 450px;
+  }
+
+  #works .before_works{
+    background: #1f1f1fef;
+    color: var(--branco);
+    border-radius: 15px;
+    margin: 50px;
+    padding: 45px;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+    #works .before_works .links{
+      display: flex;
+    }
+
+      #works .before_works .links .table{
+        display: flex;
+        gap: 15px;
+        width: 50%;
+        padding: 30px 20px;
+        text-align: center;
+        flex-direction: column;
+      }
+
+        #works .before_works .links .table a{
+          background: var(--verde);
+          padding: 10px 0;
+          text-decoration: none;
+          color: var(--branco);
+          border-radius: 3px;
+          box-shadow: 10px 2px var(--amarelo);
+        }
 
 #suggestions{
-  top: 400vh;
+  top: 370vh;
 }
