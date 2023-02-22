@@ -114,6 +114,10 @@ def soma (n1, n2):
         soma += i
     return soma
 
+n1 = int(input())
+n2 = int(input())
+print(soma(n1,n2))
+
 # 10 - Maior 
 def max (array):
     if len(array) == 1:
