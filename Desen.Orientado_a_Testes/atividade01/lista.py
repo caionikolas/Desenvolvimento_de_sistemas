@@ -114,4 +114,106 @@ def soma (n1, n2):
         soma += i
     return soma
 
-# 10 - 
+# 10 - Maior 
+def max (array):
+    if len(array) == 1:
+        return array[0]
+    else:
+        if array[0] >= array[1]:
+            array.pop(1)
+            max(array)
+        else:
+            array.pop(0)
+            max(array)
+
+def principal ():
+    nums = []
+    for i in range(4):
+        num = int(input())
+        nums.append(num) 
+
+    max(nums)
+    return nums
+
+for i in range(2):
+    print(principal())
+
+# 11 - divisores
+
+num = int(input())
+if num < 0:
+    num *= -1
+dividendo = num
+divisores = 0
+while dividendo > 0:
+    if num % dividendo == 0:
+        divisores += 1
+    dividendo -= 1
+
+print(divisores)
+
+# 12 - somatario
+
+num = int(input())
+if num < 0:
+    num *= -1
+
+def somatorio (num):
+    res = 0
+    for i in range(num + 1):
+        res += i
+
+    return res
+
+print(somatorio(num))
+
+# 13 - somatorio inverso
+
+n = int(input())
+if n < 0:
+    n *= -1
+
+def somatorio (num):
+    res = 1
+    for i in range(1, num + 1):
+        res += (1/i)
+
+    return res
+
+print(somatorio(n))
+
+# 14 - somatorio do fatorial inverso 
+
+n = int(input())
+if n < 0:
+    n *= -1
+
+def fatorial(num):
+  if num == 1:
+    return 1
+  else:
+    return num * fatorial(num -1)
+
+def somatorio (num):
+    res = 1
+    for i in range(1, num + 1):
+        res += (1/fatorial(i))
+
+    return res
+
+print(somatorio(n))
+
+# 15 - somatorio da confusão
+
+n = int(input())
+if n < 0:
+    n *= -1
+
+def somatorio (num):
+    res = 0
+    for i in range(1, num + 1):
+        res += (((i**2) + 1)/(i + 3))
+
+    return res
+
+print(somatorio(n))
