@@ -1,0 +1,33 @@
+body{
+    background: #d1d1d1;
+}
+main{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+p{
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+.radial, .conico, .linear{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-top: 30px;
+}
+
+.radial{
+    background: radial-gradient(rgba(255, 0, 0, .75), #ff7f00, #ffff00, #00ff00, #00ffff, #8b00ff, white, black)
+}
+
+.conico{
+    background: conic-gradient(#ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #8b00ff, #ff0000)
+}
+
+.linear{
+    background: linear-gradient(to left,#ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #8b00ff, #ff0000);
+}
+
