@@ -9,7 +9,7 @@ def inter(list1, list2):
 list1 = []
 list2 = []
 for i in range(10):
-    list1[i] = int(input())
-    list2[i] = int(input())
+    list1.append(int(input("Digite um número para primeira lista: ")))
+    list2.append(int(input("Digite um número para segunda lista: ")))
 
 inter(list1,list2)

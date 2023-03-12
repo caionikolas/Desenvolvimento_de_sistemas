@@ -9,7 +9,7 @@ def max_mix(numbers):
 
 numbers = []
 for i in range(15):
-    numbers[i] = int(input())
+    numbers.append(int(input("Digite um número: ")))
 
 max_mix(numbers)
 

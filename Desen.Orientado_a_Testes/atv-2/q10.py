@@ -1,12 +1,14 @@
 def maior(list):
-    max(list)
-    min(list)
+    maximo = max(list)
+    minimo = min(list)
     for i in range(len(list)-1, -1, -1):
-        if max == list[i]:
-            print(max, i)
-        if min == list[i]:
-            print(min, i)
-    
+        if maximo == list[i]:
+            print(f'O maior número da lista é {maximo} e sua posição é {i}!')
+        if minimo == list[i]:
+            print(f'O menor número da lista é {minimo} e sua posição é {i}!')
+
 list = []
 for i in range(15):
-    list[i] = int(input())
+    list.append(int(input("Digite um número: ")))
+
+maior(list)

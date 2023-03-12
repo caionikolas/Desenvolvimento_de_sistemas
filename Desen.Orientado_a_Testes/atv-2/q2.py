@@ -7,13 +7,13 @@ def negative (numbers):
         else:
             positivo_soma += numbers[i]
 
-    print(negativo)
-    print(positivo_soma)
+    print(f'A quantidade de números negativos é: {negativo}')
+    print(f'A soma dos números positivos é: {positivo_soma}')
 
 
 numbers = []
-for number in range(1,11):
-    numbers[number] = float(input())
+for number in range(10):
+    numbers.append(float(input("digite um numero: ")))
 
 negative(numbers)
 

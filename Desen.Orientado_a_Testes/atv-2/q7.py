@@ -1,15 +1,16 @@
 def pertece(list, num):
     for i in range(10):
         if num == list[i]:
-            return True
+            return "Esse valor pertece a lista!"
 
-    return False
+    return "Esse valor não pertence a lista!"
+
 
 
 list = []
 for i in range(10):
-    list[i] = int(input())
+    list.append(int(input("Digite um número: ")))
 
-num = int(input())
+num = int(input("Digite um valor: "))
 
-pertece(list, num)
+print(pertece(list, num))

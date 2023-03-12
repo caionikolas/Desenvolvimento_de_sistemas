@@ -3,7 +3,7 @@ def inv_x(listx):
     for i in range(len(listx) - 1,-1,-1):
         listy.append(listx[i])
 
-    print(listy) 
+    print(f'A ordem inversa da lista X é:', str(listy).strip('[]'))
 
 listx = [1,2,3,4,5]
 inv_x(listx)
