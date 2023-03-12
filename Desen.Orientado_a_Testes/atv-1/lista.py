@@ -290,11 +290,6 @@ def inteiro():
 inteiro()
 
 # 14 - somatorio do fatorial inverso 
-
-n = int(input())
-if n < 0:
-    n *= -1
-
 def fatorial(num):
   if num == 1:
     return 1
@@ -308,14 +303,20 @@ def somatorio (num):
 
     return res
 
-print(somatorio(n))
+def inteiro():
+    try:
+        num = int(input("Digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        print(f'O Somatorio do Fatorial inverso desse valor é: {somatorio(num):.2f}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # 15 - somatorio da confusão
-
-n = int(input())
-if n < 0:
-    n *= -1
-
 def somatorio (num):
     res = 0
     for i in range(1, num + 1):
@@ -323,4 +324,15 @@ def somatorio (num):
 
     return res
 
-print(somatorio(n))
+def inteiro():
+    try:
+        num = int(input("Digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        print(f'O Somatorio dessa função é: {somatorio(num):.2f}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
