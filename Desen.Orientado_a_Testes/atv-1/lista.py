@@ -1,12 +1,21 @@
 # Q1 - par/impar
-def par_impar (num):
+def par_impar(num):
     if num%2 == 0:
         return "par"
     else:
         return "impar"
 
-num = int(input())
-print(par_impar(num));
+def inteiro():
+    try:
+        num = int(input("digite um número: "))
+        print(par_impar(num))
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+
+inteiro()
+
 
 # Q2 - area/perimetro
 import math
@@ -16,19 +25,32 @@ def area (raio):
 def perimetro (raio):
     return math.pi * 2 * raio
 
-raio = input(float())
-print(area(raio), perimetro(raio))
+def reais():
+    try:
+        raio = float(input("Digite um raio: "))
+        print(f' Area: {area(raio):.2f}, Perimetro: {perimetro(raio):.2f}')
+    except:
+        print("número invalido, digite novamente: ")
+        reais()
 
+reais()
 
 # Q3 - celsus
 def celsus (temp):
     return ((temp-32)/9)*5
 
-temp = input(float())
-print(celsus(temp)) 
+def reais():
+    try:
+        temp = float(input("Digite uma Temperatura: "))
+        print(f' Temperatura em Celsus: {celsus(temp):.2f}')
+    except:
+        print("número invalido, digite novamente: ")
+        reais()
+
+reais()
 
 # Q4 - notas
-def media (nota1, nota2):
+def media(nota1, nota2):
     media = (nota1 + nota2)/2
     if media >= 6:
         print(media)
@@ -36,9 +58,22 @@ def media (nota1, nota2):
     else:
         return media
 
-nota1 = int(input())
-nota2 = int(input())
-print(media(nota1,nota2))
+def inteiro():
+    try:
+        nota1 = int(input("Digite a nota 1: "))
+        nota2 = int(input("Digite a nota 2: "))
+        if nota1 < 0 or nota2 < 0:
+            print("nota invalida, Permitido apenas valores entre 0 e 10: ")
+            inteiro()
+        if nota1 > 10 or nota2 > 10:
+            print("nota invalida, Permitido apenas valores entre 0 e 10: ")
+            inteiro()
+        print(f'A média das notas é: {media(nota1,nota2)}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # Q5 - peso ideal
 def peso_ideal (altura, sexo):
@@ -47,11 +82,20 @@ def peso_ideal (altura, sexo):
     else:
         return (72.7 * altura) - 58
 
-altura = float(input())
-while not sexo == 1 or not sexo == 2:
-    sexo = int(input())
+def reais():
+    try:
+        altura = float(input("Digite sua altura: "))
+        sexo = int(input())
+        if sexo == 1 or sexo == 2:
+            print(f'Peso ideal é: {peso_ideal(altura, sexo)}')
+        else:
+            print('valor invalido')
+            reais()
+    except:
+        print("número invalido, digite novamente: ")
+        reais()
 
-print(peso_ideal(altura,sexo))
+reais()
 
 # Q6 - tipo de triagulos
 def type_triangle(lados, tamanho):
@@ -64,10 +108,16 @@ def type_triangle(lados, tamanho):
     else:
         return "PENTAGONO"
 
-tamanho = float(input())
-lados = int(input())
+def reais():
+    try:
+        tamanho = float(input('Digite o tamanho: '))
+        lados = int(input("Digite os lados: "))
+        print(f'O tipo de triangulo é: {type_triangle(lados, tamanho)}')
+    except:
+        print("número invalido, digite novamente: ")
+        reais()
 
-print(type_triangle(lados,tamanho))
+reais()
 
 # Q7 - fatorial
 def fatorial(num):
@@ -76,28 +126,50 @@ def fatorial(num):
   else:
     return num * fatorial(num -1)
 
-num = int(input())
+def inteiro():
+    try:
+        num = int(input("digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        else:
+            print(fatorial(num))
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # Q8 - cubo
 def cubo (num):
-    print (num**3)
+    print (f'Seu cubo é: {(num**3)}')
     continuar()
-    return
+    return ""
 
 def continuar():
-    print ("deseja continuar")
-    resposta = input().upper
-    if resposta == 'S':
-        num = float(input())
+    res = input("deseja continuar: ")
+    print(res)
+    if res == 's':
+        num = float(input("Digite um número: "))
         cubo(num)
-    elif resposta == 'N':
+    elif res == 'n':
         return
     else:
         continuar()
 
+def reais():
+    try:
+        num = float(input("Digite um número: "))
+        print(cubo(num))
+    except:
+        print("número invalido, digite novamente: ")
+        reais()
+
+reais()
+
 # Q9 - soma de inteiros
 import sys
-def soma (n1, n2):
+def soma(n1, n2):
     maior = -sys.maxsize - 1
     menor = sys.maxsize
     if n1 > n2:
@@ -108,15 +180,24 @@ def soma (n1, n2):
         menor = n1
     else:
         return n1 + n2
-    
+
+    print(maior, menor)
+
+    soma = 0
     for i in range(menor, maior + 1):
-        soma = 0
-        soma += i
+        soma += (menor+i)
     return soma
 
-n1 = int(input())
-n2 = int(input())
-print(soma(n1,n2))
+def inteiro():
+    try:
+        n1 = int(input("Digite a nota 1: "))
+        n2 = int(input("Digite a nota 2: "))
+        print(f'A Soma dos inteiros no intevalo é: {soma(n1, n2)}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # 10 - Maior 
 def max (array):
@@ -133,35 +214,40 @@ def max (array):
 def principal ():
     nums = []
     for i in range(4):
-        num = int(input())
-        nums.append(num) 
+        num = int(input("Digite um numero: "))
+        nums.append(num)
 
     max(nums)
     return nums
 
-for i in range(2):
+for i in range(4):
     print(principal())
 
 # 11 - divisores
+def dividir (num):
+    dividendo = num
+    divisores = 0
+    while dividendo > 0:
+        if num % dividendo == 0:
+            divisores += 1
+        dividendo -= 1
 
-num = int(input())
-if num < 0:
-    num *= -1
-dividendo = num
-divisores = 0
-while dividendo > 0:
-    if num % dividendo == 0:
-        divisores += 1
-    dividendo -= 1
+    print(f'Possui {divisores} divisor(es)!')
 
-print(divisores)
+def inteiro():
+    try:
+        num = int(input("Digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        dividir(num)
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # 12 - somatario
-
-num = int(input())
-if num < 0:
-    num *= -1
-
 def somatorio (num):
     res = 0
     for i in range(num + 1):
@@ -169,22 +255,39 @@ def somatorio (num):
 
     return res
 
-print(somatorio(num))
+def inteiro():
+    try:
+        num = int(input("Digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        print(f'O Somatorio desse valor é: {somatorio(num)}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # 13 - somatorio inverso
-
-n = int(input())
-if n < 0:
-    n *= -1
-
-def somatorio (num):
+def somatorio(num):
     res = 1
     for i in range(1, num + 1):
         res += (1/i)
 
     return res
 
-print(somatorio(n))
+def inteiro():
+    try:
+        num = int(input("Digite um número: "))
+        if num < 0:
+            print("número invalido, digite novamente: ")
+            inteiro()
+        print(f'O Somatorio Inverso desse valor é: {somatorio(num):.2f}')
+    except:
+        print("número invalido, digite novamente: ")
+        inteiro()
+
+inteiro()
 
 # 14 - somatorio do fatorial inverso 
 
