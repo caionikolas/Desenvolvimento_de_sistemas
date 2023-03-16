@@ -12,7 +12,7 @@ class Consulta:
         self.medico = input("Digite o nome do medico: ")
         self.data = self.testar_data()
         self.data = self.data.strftime("%d/%m/%Y")
-        print(self.data)
+        print(f'Consulta marcada para o dia {self.data} com o Dr. {self.medico}.')
         self.gerar_codigo()
         return
     
@@ -56,7 +56,8 @@ class Consulta:
                 for i in range(len(consultas)):
                     if consultas[i]["codigo"] == codigo:
                         consultas[i]["pago"] = True
-                return print("Valor pago! ")
+                        return print("Valor pago! ")
+                return print("Não possui matricula atribuida a este código! ")
             if pay == 'n':
                 return 
             print("comando invalido!, apenas valores 's' ou 'n'")
@@ -77,7 +78,7 @@ class Consulta:
                 nova_data = self.testar_data()
                 nova_data = nova_data.strftime("%d/%m/%Y")
                 consultas[i]["data"] = nova_data
-                return print("Data agendada!")
+                return print("Data Reagendada!")
 
     def gerar_codigo(self):
         c = randint(0,999999999)
