@@ -7,6 +7,8 @@ class Consulta:
         self.codigo = 0
         self.data = data
         self.pago = False
+        self.retorno = "Não agendado!"
+        self.status = ""
 
     def nova_consulta(self): 
         self.medico = input("Digite o nome do medico: ")
@@ -14,6 +16,7 @@ class Consulta:
         self.data = self.data.strftime("%d/%m/%Y")
         print(f'Consulta marcada para o dia {self.data} com o Dr. {self.medico}.')
         self.gerar_codigo()
+        self.status = "Aberto"
         return
     
     def testar_data(self):
@@ -43,7 +46,7 @@ class Consulta:
                     else:
                         return datetime(ano,mes,dia)
         except:
-            print("data invalida! Digite novmente!")
+            print("data invalida! Digite novamente!")
             return self.testar_data()
 
     def pagar_consulta(self, codigo = 0):
@@ -69,7 +72,7 @@ class Consulta:
     def cancelar_consulta(self, codigo):
         for i in range(len(consultas)):
             if consultas[i]["codigo"] == codigo:
-                consultas.pop(i)
+                consultas[i]["status"] = "Cancelada"
                 return print("Consulta cancelada! ")
 
     def agendar_retorno(self, codigo):
@@ -77,7 +80,8 @@ class Consulta:
             if consultas[i]["codigo"] == codigo:
                 nova_data = self.testar_data()
                 nova_data = nova_data.strftime("%d/%m/%Y")
-                consultas[i]["data"] = nova_data
+                consultas[i]["retorno"] = nova_data
+                consultas[i]["status"] = "Concluida"
                 return print("Data Reagendada!")
 
     def gerar_codigo(self):
@@ -112,7 +116,6 @@ def menu():
         consulta = Consulta()   
         target = int(input('''
             Consulta Médica!
-
         1- Nova consulta (agendamento)
         2- Pagar Consulta
         3- Cancelar consulta
@@ -123,7 +126,7 @@ def menu():
         
         if target == 1:
             consulta.nova_consulta()
-            consultas.append({"medico": consulta.medico, "data": consulta.data, "codigo": consulta.codigo, "pago": consulta.pago})
+            consultas.append({"medico": consulta.medico, "data": consulta.data, "codigo": consulta.codigo, "pago": consulta.pago, "retorno": consulta.retorno, "status": consulta.status})
             consulta.pagar_consulta(consulta.codigo)
             print("Consulta Agendada!")
             for i in range(len(consultas)):
@@ -158,10 +161,12 @@ def programa():
             if value == 's':
                 return programa()
             if value == 'n':
+                print(consultas)
                 return print("Programa encerrado! ")
         except:
             print("comando invalido!, apenas valores 's' ou 'n'")
             programa()
         
 programa()
+
     
