@@ -11,7 +11,7 @@ class Consulta:
         self.status = ""
 
     def nova_consulta(self): 
-        self.medico = input("Digite o nome do medico: ")
+        self.medico = input("Digite o nome do medico:   ")
         self.data = self.testar_data()
         self.data = self.data.strftime("%d/%m/%Y")
         print(f'Consulta marcada para o dia {self.data} com o Dr. {self.medico}.')
@@ -21,9 +21,9 @@ class Consulta:
     
     def testar_data(self):
         try:
-            dia = int(input("Digite o dia da consulta: "))
-            mes = int(input("Digite o mes da consulta: "))
-            ano = int(input("Digite o ano da consulta: "))
+            dia = int(input("Digite o dia da consulta:  "))
+            mes = int(input("Digite o mes da consulta:  "))
+            ano = int(input("Digite o ano da consulta:  "))
             data_inicial = datetime.now()
             data_final = datetime(ano,mes,dia)
             if data_final.year < self.data.year:
@@ -126,7 +126,9 @@ class Consulta:
                     todas += 1
             
         if todas == 0:
-            print ("A clinica não possui consultas agendadas para o mes escolhido! ")
+            print ('''
+            A clinica não possui consultas agendadas para o mes escolhido!
+            ''')
         else:
             print(f'''
             O faturamento da Clinica no mes de {meses[m]} é de {todas*100} reais!
@@ -144,6 +146,7 @@ def menu():
     try:
         consulta = Consulta()   
         target = int(input('''
+
             Consulta Médica!
         1- Nova consulta (agendamento)
         2- Pagar Consulta
@@ -151,13 +154,16 @@ def menu():
         4- Agendar retorno
         5- Relatório de consultas realizadas no mes por médico
         6- Relatório de faturamento da Clinica por mes
+
     '''))
         
         if target == 1:
             consulta.nova_consulta()
             consultas.append({"medico": consulta.medico, "data": consulta.data, "codigo": consulta.codigo, "pago": consulta.pago, "retorno": consulta.retorno, "status": consulta.status})
             consulta.pagar_consulta(consulta.codigo)
-            print("Consulta Agendada!")
+            print('''
+            Consulta Agendada!
+            ''')
             for i in range(len(consultas)):
                 if consultas[i]["codigo"] == consulta.codigo:
                     print(f'Detalhes da consulta {consultas[i]}')
@@ -185,12 +191,16 @@ def programa():
     while True:
         menu()
         try:
-            value = input("Deseja continuar(s/n)?  ")
+            value = input('''
+            Deseja continuar(s/n)?  
+            ''')
             if value == 's':
                 return programa()
             if value == 'n':
                 print(consultas)
-                return print("Programa encerrado! ")
+                return print('''
+                Programa encerrado! 
+                ''')
         except:
             print("comando invalido!, apenas valores 's' ou 'n'")
             programa()
