@@ -94,57 +94,50 @@ class Consulta:
             self.gerar_codigo()
 
     def consultas_medico(self, proc_medico):
-        todas = 0
+        datas = []
         m = int(input("digite o mes que deseja saber o relatório: "))
         a = int(input("digite o ano: "))
-        con_med = []
-        print(f'O relatorio de consultas do Dr. {proc_medico} no mês de {meses[m]} se encontra abaixo!')
-        print("")
         for i in range(len(consultas)):
-            if consultas[i]["medico"] == proc_medico:
-                if consultas[i]["status"] == "Aberto":
-                    todas += 1
-                    add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
-                    datas.append(add_data)
-                    #print(add_data.strftime("%d/%m/%Y"))
-        if todas == 0:
+            if consultas[i]["medico"] == proc_medico and consultas[i]["status"] == "Aberto":
+                add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
+                if add_data.month == m and add_data.year == a:
+                    datas.append(consultas[i]["data"])
+        
+        if len(datas) == 0:
             print ("O medico nao possui consultas agendadas! ")
         else:
-            print(len(datas))
-            print(m, a)
-            for j in range(len(datas)):
-                print("aaaaaaaaaaaaaa")
-                if datas[j].month == m and datas[j].year == a:
-                    print("passei aqui")
-                    data_cov = datas[j].strftime("%d/%m/%Y")
-                    con_med.append(data_cov)
-                    print(con_med)
-            for k in range(len(con_med)):
-                print(con_med[k])
-            print(f'O custo do Dr. {proc_medico} no mes escolhido é {todas*200} reais!')   
+            print(f'''
+            O relatorio de consultas do Dr. {proc_medico} no mês de {meses[m]} se encontra abaixo!
+
+            {datas}
+
+            O custo do Dr. {proc_medico} no mes escolhido é {len(datas)*200} reais!
+            ''')           
         return
     
     def relatorio(self):
         todas = 0
         m = int(input("digite o mes que deseja saber o relatório: "))
         a = int(input("digite o ano: "))
-        print(f'O relatorio do fauramento da Clinica no mês de {meses[m]} se encontra abaixo!')
-        print("")
         for i in range(len(consultas)):
             if consultas[i]["status"] == "Aberto" or consultas[i]["status"] == "Concluida":
-                todas += 1
+                add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
+                if add_data.month == m and add_data.year == a:
+                    todas += 1
             
         if todas == 0:
             print ("A clinica não possui consultas agendadas para o mes escolhido! ")
         else:
-            print(f'O faturamento da Clinica no mes de {meses[m]} é de {todas*100} reais!')   
+            print(f'''
+            O faturamento da Clinica no mes de {meses[m]} é de {todas*100} reais!
+            ''')
         return
 
 codigos = []
 consultas = [{'medico': 'fulano', 'data': '13/05/2023', 'codigo': 834357614, 'pago': False, 'retorno': 'Não agendado!', 'status': 'Aberto'}, 
 {'medico': 'fulano', 'data': '19/05/2023', 'codigo': 834357814, 'pago': False, 'retorno': 'Não agendado!', 'status': 'Aberto'}, 
-{'medico': 'fulano', 'data': '01/01/2023', 'codigo': 834357514, 'pago': False, 'retorno': 'Não agendado!', 'status': 'Aberto'}]
-datas = []
+{'medico': 'fulano', 'data': '01/01/2024', 'codigo': 834357514, 'pago': False, 'retorno': 'Não agendado!', 'status': 'Aberto'}]
+
 meses = ["Meses do ano!","Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
 
 def menu():
@@ -180,7 +173,7 @@ def menu():
             proc_medico = input("Digite o nome do médico: ")
             consulta.consultas_medico(proc_medico)
         elif target == 6:
-            return
+            consulta.relatorio()
         else:
             print("valor incorreto! Escolha novamente! ")
             return menu()
