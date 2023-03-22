@@ -120,7 +120,7 @@ class Consulta:
         m = int(input("digite o mes que deseja saber o relatório: "))
         a = int(input("digite o ano: "))
         for i in range(len(consultas)):
-            if consultas[i]["status"] == "Aberto" or consultas[i]["status"] == "Concluida":
+            if consultas[i]["pago"] == True:
                 add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
                 if add_data.month == m and add_data.year == a:
                     todas += 1
