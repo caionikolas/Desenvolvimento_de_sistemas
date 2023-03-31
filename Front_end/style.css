@@ -1,0 +1,21 @@
+body{
+    background-image: url(https://media.istockphoto.com/id/1360494144/pt/vetorial/modern-holographic-abstract-background-soft-color-gradient.jpg?b=1&s=612x612&w=0&k=20&c=a-MDZOA0PrFofIRBEQY9yccMHvFYpvWZkUOhOuHcd2U=);
+    background-size: 110% auto;
+    background-position: center top;
+}
+#lista1{
+    list-style-type: upper-roman;
+    
+}   
+
+#lista2{
+    list-style-type: none;
+}
+
+#lista3{
+    list-style: none;
+}
+img{
+    height: 1rem;
+    
+}
