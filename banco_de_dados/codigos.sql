@@ -33,3 +33,22 @@ SELECT * FROM public.produto
 INSERT INTO produto VALUES (1,'vassoura', 12.60);
 INSERT INTO produto VALUES (2,'sabão', 20.30);
 INSERT INTO produto VALUES (3,'tapete', 10.01);
+
+/* Outra maneira de inserir valores  (escolhendo a ordem que vai inserir no banco)           */
+INSERT INTO cliente (nome, cpf, rg, data_nascimento, ativo) VALUES (
+	'roberta', 12345678911, 12345678901235, '10/05/2023', True  
+);
+
+/* atualizar tabela  (sempre optar por usar o "WHERE" porem é opcional)             */
+UPDATE cliente SET ativo = true;
+
+UPDATE cliente SET data_nascimento = '2000/10/02', nome = 'zezinho' , ativo = false
+WHERE cpf = 12345678910;
+
+/* Deletar tabela 											*/
+DELETE FROM cliente WHERE cpf = 111111;
+
+SELECT * FROM cliente
+
+
+
