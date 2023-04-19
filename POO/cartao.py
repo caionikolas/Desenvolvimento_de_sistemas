@@ -1,16 +1,22 @@
-from datetime import date, datetime
+#Alunos:
 
+#CAIO NIKOLAS AMORIM DA SILVA
+#CHRISTIAN FELLIPE 
+
+
+from datetime import date, datetime
 
 class Cartao:
     def __init__(self, numero, titular, validade, cod_seguranca, limite_de_compras= 1000, senha = None, fatura_a_pagar = 0, status = 'bloqueado'):
         self.__numero = numero
         self.titular = titular
         self.__validade = validade
-        self.__limite_de_compras = limite_de_compras
+        self.limite_de_compras = limite_de_compras
         self.__cod_seguranca = cod_seguranca
         self.__senha = senha
-        self.__fatura_a_pagar = fatura_a_pagar
-        self.__status = status
+        self.fatura_a_pagar = fatura_a_pagar
+        self.valor_minimo = 0
+        self.status = status
 
     @property
     def numero(self):
@@ -21,25 +27,18 @@ class Cartao:
         return self.__validade
 
     @property
-    def limite_de_compras(self):
-        return self.__limite_de_compras
-
-    @property
-    def fatura_a_pagar(self):
-        return self.__fatura_a_pagar
-
-    @property
-    def status(self):
-        return self.__status
-
-    @property
     def cod_seguranca(self):
         return self.__cod_seguranca
 
+    @property
+    def senha(self):
+        return self.__senha
+
     @senha.setter
     def senha(self, valor):
-        self.senha = valor
-        return 
+        if valor != self.__senha:
+            self.__senha = valor
+        return
 
     def desbloquear(self):
         if self.status == "liberado":
@@ -73,7 +72,19 @@ class Cartao:
                 print("Código de segurança inválido\nPor favor digite novamente")
                 return self.mudar_senha()
 
+    def testar_data(self):
+        date = datetime.strptime(self.validade, '%m/%Y').date()
+        data_inicial = datetime.now()
+        data_final = date
+        if data_final.year < data_inicial.year:
+            return False
+        elif data_final.month < data_inicial.month:
+            return False
+        else:
+            return True
+
     def comprar(self, valor, senha):
+        testar_validade = self.testar_data()
         if senha != self.senha:
             print ("Senha incorreta")
             return self.comprar(valor, int(input("Digite a senha novamente: ")))
@@ -81,23 +92,29 @@ class Cartao:
             return print ("Compra não efetuada!\nO valor excede o limite de compra! ")
         elif self.status == 'bloqueado':
             return print("Compra não efetuada!\nO cartão está bloqueado! ")
-        elif self.validade == datetime:
-            return print("faça algo")
+        elif testar_validade == False:
+            return print("cartão fora do prazo de validade! ")
         else:
             self.limite_de_compras -= valor
             self.fatura_a_pagar += valor
-            #fazer depois fatura minima
+            self.valor_minimo += (self.fatura_a_pagar*0.3)
             return print("Compra efetuada! ")
 
-    def pagar_fatura(self):
-
-        return 'fatura paga'
+    def pagar_fatura(self, ):
+        print(f'O valor da fatura atual é R${self.fatura_a_pagar}')
+        valor = float(input("Qual o valor do pagamento? "))
+        if valor < self.valor_minimo or valor > self.fatura_a_pagar:
+            print("Dados incoerentes!\n Por favor, digite novamente! ")
+            return self.pagar_fatura()
+        else:
+            self.limite_de_compras += valor
+            self.fatura_a_pagar -= valor
+            self.valor_minimo = self.fatura_a_pagar*0.3
+            return print('fatura paga')
 
     def __str__(self):
         return self.titular
 
-
-    
     def comandos(self):
         comando = [
             lambda: print('Comando inválido'),
@@ -170,10 +187,3 @@ def log_menu(cartoes):
             pass
 
 log_menu(cartoes)
-2
-111111111
-55555
-2
-111111111
-55555
-4
