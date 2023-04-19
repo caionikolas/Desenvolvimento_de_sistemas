@@ -1,13 +1,41 @@
 class Cartao:
     def __init__(self, numero, titular, validade, cod_seguranca, limite_de_compras= 1000, senha = None, fatura_a_pagar = 0, status = 'bloqueado'):
-        self.numero = numero
+        self.__numero = numero
         self.titular = titular
-        self.validade = validade 
-        self.limite_de_compras = limite_de_compras
-        self.cod_seguranca = cod_seguranca
+        self.__validade = validade 
+        self.__limite_de_compras = limite_de_compras
+        self.__cod_seguranca = cod_seguranca
         self.senha = senha
-        self.fatura_a_pagar = fatura_a_pagar
-        self.status = status
+        self.__fatura_a_pagar = fatura_a_pagar
+        self.__status = status
+
+    @property
+    def numero(self):
+        return self.__numero
+    
+    @property
+    def validade(self):
+        return self.__validade
+    
+    @property
+    def limit__limite_de_compras(self):
+        return self.__limite_de_compras
+    
+    @property
+    def fa__fatura_a_pagar(self):
+        return self.__fatura_a_pagar
+    
+    @property
+    def s__status(self):
+        return self.__status
+    
+    @property
+    def c__cod_seguranca(self):
+        return self.__cod_seguranca
+    
+    @senha.setter
+    def senha(self, valor):
+        return print('Sem permissão')
 
     def Desbloquear(self):
         if self.status == "liberado":
