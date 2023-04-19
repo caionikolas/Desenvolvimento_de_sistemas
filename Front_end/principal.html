@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <div class="side" id="side1">
+            <video src="video/magic.mp4" type="video/mp4" autoplay loop muted></video>
+        </div>
+        <div class="side" id="side2">
+            <video src="video/magic.mp4" type="video/mp4" autoplay loop muted></video>
+        </div>
+    </section>
+    <div class="content">
+        <h1><img src="img/logo.png" alt="logo magic"></h1>
+        <h2>Magic the Gathering, MTG ou simplemente Magic</h2>
+        <p>
+            É um jogo de cartas colecionáveis (TCG, Trading Card Game) criado por 
+            Richard Garfield e desenvolvido pela <strong>Wizards of the Coast</strong>, no qual os jogadores utilizam um baralho de cartas 
+            construído de acordo com o seu modo individual de jogo para tentar vencer 
+            o baralho adversário. Criado em 1993, Magic foi o primeiro TCG produzido e 
+            continuado até hoje, atualmente conta com aproximadamente 12 milhões de 
+            jogadores ao redor do mundo(Games Magazine)
+        </p>
+        <h2>Historia</h2>
+        <p>
+            A historia gira em torno de Planeswlakers. Poderosos magos capazes de viajar 
+            átraves dos planos da existência. Há uma infinidade de mundos no multiverso, e 
+            os Planeswlakers são os unicos capazes de transitar entre eles, expandindo seu 
+            conhecimento e poder através das experiencias que lá vivenciam.
+        </p>
+        <a href="secundaria1.html">secundaria 1</a>
+        <h2>As cores</h2>
+        <p>
+            No Magic, as cartas existem em cinco cores distintas: 
+            Branco, Azul, Preto, Vermelho e Verde. Existem ainda cartas 
+            incolores (artefatos e terrenos), assim como multicoloridas 
+            que são as cartas que têm mais de uma identidade de cor.
+        </p>
+        <dl>
+            <dt>Branco</dt>
+            <dd>
+                Representa a ordem, a justiça, proteção, a cura, a luz e a lei.
+            </dd>
+            <dt>Azul</dt>
+            <dd>
+                Representa o conhecimento, a ilusão e a astúcia.
+            </dd>
+            <dt>Preto</dt>
+            <dd>
+                Representa as trevas, a cobiça, a morte, a ambição desmedida e a pelo poder a qualquer preço.
+            </dd>
+            <dt>Vermelho</dt>
+            <dd>
+                Representa o fogo, a destruição, a impulsividade, a paixão, a liberdade e o caos.
+            </dd>
+            <dt>Verde</dt>
+            <dd>
+                Representa a natureza, a vida, o crescimento e a força bruta.
+            </dd>
+        </dl>
+        
+        
+        <a href="secundaria2.html">secundaria 2</a>
+    </div>
+    <script>
+        let side1 = document.getElementById('side1')
+        let side2 = document.getElementById('side2')
+
+        window.addEventListener('scroll', function(){
+            side1.style.left = -window.pageYOffset+'px';
+            side2.style.left = window.pageYOffset+'px';
+        })
+    </script>
+</body>
+</html>
