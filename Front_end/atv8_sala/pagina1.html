@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="p1">
+    <header id="teste">
+        <h1 id="topo">Pagina 1</h1>
+        <h3><a href="#final">Final da página</a></h3>
+    </header>
+    <main>
+        <ul>
+            <li><a href="pagina2.html">Página 2</a></li>
+            <li><a href="pagina3.html">Página 3</a></li>
+        </ul>
+        <h3 id="bg-color" onclick="escurecerPagina()">Escurecer página</a></h3>
+    </main>
+    <footer>
+        <h3 id="final"><a href="#topo">Topo</a></h3>
+    </footer>
+    <script>
+        function escurecerPagina() {
+            if (document.body.style.backgroundColor == "black"){
+                document.body.style.backgroundColor = "white"
+                document.body.style.color = "black"
+                document.getElementById("bg-color").innerHTML = "Escurecer página";
+                document.getElementById("teste").style.borderRadius = "20px";
+                let valor = document.getElementById("topo").innerHTML
+                console.log(valor)
+            } else {
+                document.body.style.backgroundColor = "black"
+                document.body.style.color = "white"
+                document.getElementById("bg-color").innerHTML = "Clarear página";
+            } 
+        }
+    </script>
+</body>
+</html>
