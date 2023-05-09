@@ -1,19 +1,17 @@
-class Paciente:
-    def __init__(self, id, nome, dt_nasc, contato):
-        self.id_paciente = id
+class Medico:
+    def __init__(self, nome, crm, id, especialidade):
+        self.crm = crm
         self.nome = nome
-        self.dt_nasc = dt_nasc
-        self.contato = contato
-        
+        self.id_medico = id
+        self.especialidade = especialidade
 
     def __str__(self):
         pass
 
-    def novo_paciente(self):
-        self.nome = input("Digite o nome do paciente: ")
-        self.dt_nasc = input("Digite sua data de nascimento:(d/m/aaaa) ")
-        self.contato = int(input("Digite seu telefone de contato: "))
-        id = self.gerar_codigo()
-        self.id_paciente = id
+    def novo_medico(self):
+        self.medico = input("digite o nome do médico: ")
+        self.crm = input("Digite seu crm ")
+        self.especialidade = input("Digite sua especialidade ")
+        self.id_medico = id
 
-maria = Paciente(32165498754, "Maria", "14/12/2002", 86998547854)
+joao = Medico(32165414521, "João", 1234, "Ortopedista")
