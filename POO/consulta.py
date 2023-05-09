@@ -1,3 +1,7 @@
+from medico import Medico
+from paciente import Paciente
+from consulta import Consulta
+
 class Consulta:
     def __init__(self, id_consulta, medico, paciente, data, pago = False):
         self.id_consulta = id_consulta
@@ -7,8 +11,19 @@ class Consulta:
         self.pago = pago
         self.data_retorno = ""
 
+    def gerar_codigo(self):
+        c = randint(0,999999999)
+        if c not in codigos:
+            codigos.append(c)
+            self.codigo = c
+            return self.codigo
+        else:
+            self.gerar_codigo()
 
-
+    def nova_consulta(self):
+        id = self.gerar_codigo()
+        self.id_consulta = id
+        self.medico = Medico.
 
 maria = Paciente(32165498754, "Maria", "14/12/2002", 86998547854)
 joao = Medico(32165414521, "João", 1234, "Ortopedista")
