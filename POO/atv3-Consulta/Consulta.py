@@ -12,6 +12,11 @@ class Consulta:
 
     def nova_consulta(self): 
         self.medico = input("Digite o nome do medico:   ")
+        print(self.data)
+
+        print(self.data)
+
+        print(self.data)
         self.data = self.testar_data()
         self.data = self.data.strftime("%d/%m/%Y")
         print(f'Consulta marcada para o dia {self.data} com o Dr. {self.medico}.')
