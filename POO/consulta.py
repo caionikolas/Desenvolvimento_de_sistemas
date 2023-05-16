@@ -3,13 +3,19 @@ from paciente import Paciente
 from datetime import datetime
 
 class Consulta:
-    def __init__(self, id_consulta, paciente, medico, data = datetime.now(), pago = False):
-        self.id_consulta = id_consulta
-        self.paciente = paciente
-        self.medico = medico
+    def __init__(self, data = datetime.now(), pago = False, status = "Ativo"):
+        self.id_consulta = 0
+        self.paciente = ""
+        self.medico = ""
         self.data = data
         self.pago = pago
         self.data_retorno = ""
+        self.status = status
+
+    def nova_consulta(self): 
+        self.id_consulta = int(input("Digite o id da consulta: "))
+        self.paciente = input("Digite o nome do paciente: ")
+        self.medico = input("Digite o nome do médico: ")
 
     def testar_data(self):
         try:
@@ -40,6 +46,81 @@ class Consulta:
         except:
             print("data invalida! Digite novamente!")
             return self.testar_data()
+        
+    def pagar_consulta(self, id = 0):
+        try:
+            pay = str(input("Deseja pagar a consulta(s/n)? "))
+            if pay == 's':
+                if id == 0:
+                    proc_id = int(input("Digite o id da consulta: "))
+                    id = proc_id
+                for i in range(len(consultas)):
+                    if consultas[i]["id_consulta"] == id:
+                        consultas[i]["pago"] = True
+                        return print("Valor pago! ")
+                return print("Não possui consulta atribuida a este id! ")
+            if pay == 'n':
+                return 
+        except:  
+            print("comando invalido!, apenas valores 's' ou 'n'")
+            self.pagar_consulta()
+
+    def cancelar_consulta(self, id):
+        for i in range(len(consultas)):
+            if consultas[i]["id_consulta"] == id:
+                consultas[i]["status"] = "Cancelada"
+                return print("Consulta cancelada! ")
+            
+    def agendar_retorno(self, id):
+        for i in range(len(consultas)):
+            if consultas[i]["id_consulta"] == id:
+                nova_data = self.testar_data()
+                nova_data = nova_data.strftime("%d/%m/%Y")
+                consultas[i]["data_retorno"] = nova_data
+                consultas[i]["status"] = "Concluida"
+                return print("Data Reagendada!")
+            
+    def consultas_medico(self, proc_medico):
+        datas = []
+        m = int(input("digite o mes que deseja saber o relatório: "))
+        a = int(input("digite o ano: "))
+        for i in range(len(consultas)):
+            if consultas[i]["medico"] == proc_medico and consultas[i]["status"] == "Aberto":
+                add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
+                if add_data.month == m and add_data.year == a:
+                    datas.append(consultas[i]["data"])
+        
+        if len(datas) == 0:
+            print ("O medico nao possui consultas agendadas! ")
+        else:
+            print(f'''
+            O relatorio de consultas do Dr. {proc_medico} no mês de {meses[m]} se encontra abaixo!
+
+            {datas}
+
+            O custo do Dr. {proc_medico} no mes escolhido é {len(datas)*200} reais!
+            ''')           
+        return
+    
+    def relatorio(self):
+        todas = 0
+        m = int(input("digite o mes que deseja saber o relatório: "))
+        a = int(input("digite o ano: "))
+        for i in range(len(consultas)):
+            if consultas[i]["pago"] == True:
+                add_data = datetime.strptime(consultas[i]["data"], '%d/%m/%Y').date()
+                if add_data.month == m and add_data.year == a:
+                    todas += 1
+            
+        if todas == 0:
+            print ('''
+            A clinica não possui consultas agendadas para o mes escolhido!
+            ''')
+        else:
+            print(f'''
+            O faturamento da Clinica no mes de {meses[m]} é de {todas*100} reais!
+            ''')
+        return
 
 #maria = Paciente(32165498754, "Maria", "14/12/2002", 86998547854)
 #joao = Medico(32165414521, "João", 1234, "Ortopedista")
@@ -51,6 +132,9 @@ medicos = []
 consultas = []
 
 def menu():
+    novo_paciente = Paciente()
+    novo_medico = Medico()
+    nova_consulta = Consulta()
     m = int(input('''
         1 - cadastrar paciente
         2 - cadastrar medico
@@ -63,27 +147,25 @@ def menu():
     '''))
 
     if m == 1:
-        id = int(input("Digite o id do paciente: "))
-        nome = input("Digite o nome do paciente: ")
-        dt = input("Digite a data de nascimento: ")
-        contato = int(input("Contato: "))
-
-        novo_paciente = Paciente(id, nome, dt, contato)
-        pacientes.append({"id_paciente": novo_paciente.id_paciente, "paciente": novo_paciente.nome, "medico": novo_paciente.dt_nasc, "data": novo_paciente.contato})
-        
-        print(f'Paciente cadastrado!')
-        return print(pacientes)
+        novo_paciente.novo_paciente()
+        pacientes.append({
+            "id_paciente": novo_paciente.id_paciente, 
+            "paciente": novo_paciente.nome, 
+            "medico": novo_paciente.dt_nasc, 
+            "data": novo_paciente.contato
+        })
+        print(f'{pacientes}')
     
     elif m == 2:
-        id = int(input("Digite o id do médico: "))
-        nome = input("Digite o nome do médico: ")
-        crm = int(input("Digite o seu crm: "))
-        especialidade = input("Especialidade: ")
+        novo_medico.novo_medico()
 
-        novo_medico = Medico(id, nome, crm, especialidade)
-        medicos.append({"id_medico": novo_medico.id_medico, "nome": novo_medico.nome, "crm": novo_medico.crm, "especialidade": novo_medico.especialidade})
+        medicos.append({
+            "id_medico": novo_medico.id_medico, 
+            "nome": novo_medico.nome, 
+            "crm": novo_medico.crm, 
+            "especialidade": novo_medico.especialidade
+        })
 
-        print(f'Médico cadastrado!')
         return print(medicos)
     elif m == 3:
         id = int(input("Digite o id da consulta: "))
@@ -97,19 +179,18 @@ def menu():
         print(f'Consulta cadastrada!')
         return print(consultas)
     elif m == 4:
-        pass
+        nova_consulta.pagar_consulta()
     elif m == 5:
-        pass
+        id = int(input("Digite o id da consulta: "))
+        nova_consulta.cancelar_consulta(id)
     elif m == 6:
-        pass
+        id = int(input("Digite o id da consulta: "))
+        nova_consulta.agendar_retorno(id)
     elif m == 7:
-        pass
+        proc_medico = input("Digite o nome do médico: ")
+        nova_consulta.consultas_medico(proc_medico)
     elif m == 8:
-        pass
+        nova_consulta.relatorio()
     
 menu()
-    
-    
-
-
-
+  
