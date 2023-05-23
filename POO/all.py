@@ -1,3 +1,4 @@
+#consulta
 from medico import Medico
 from paciente import Paciente
 from datetime import datetime
@@ -193,3 +194,56 @@ def menu():
         nova_consulta.relatorio()
     
 menu()
+
+
+#medico
+
+class Medico:
+    def __init__(self):
+        self.id_medico = 0
+        self.nome = ""
+        self.crm = 0
+        self.especialidade = ""
+
+    def __str__(self):
+        return f'id_medico: {self.id_paciente}, nome: {self.nome}, crm: {self.dt_nasc}, especializade: {self.contato}'
+
+    def novo_medico(self):
+        self.id_medico = input("Digite o id do médico: ")
+        self.medico = input("digite o nome do médico: ")
+        self.crm = input("Digite seu crm: ")
+        self.especialidade = input("Digite sua especialidade ")
+
+        return print(f'Médico cadastrado!')
+
+#joao = Medico(32165414521, "João", 1234, "Ortopedista")
+
+#paciente 
+
+from datetime import datetime
+
+class Paciente:
+    def __init__(self):
+        self.id_paciente = 0
+        self.nome = ""
+        self.dt_nasc = ""
+        self.contato = 0
+        
+    def __str__(self):
+        return f'id_paciente: {self.id_paciente}, nome: {self.nome}, dt_nasc: {self.dt_nasc}, contato: {self.contato}'
+        
+    def novo_paciente(self):
+        self.id_paciente = int(input("Digite o id do paciente: "))
+        self.nome = input("Digite o nome do paciente: ")
+        self.dt_nasc = self.nascimento()
+        self.contato = int(input("Contato: "))
+        
+        return print(f'Paciente cadastrado!')
+    
+    def nascimento(self):
+        dia = int(input("Digite seu dia de nascimento: "))
+        mes = int(input("Digite seu mês de nascimento: "))
+        ano = int(input("Digite seu ano de nascimento: "))
+        nasc = datetime(ano, mes, dia)
+        nasc = nasc.strftime("%d/%m/%Y")
+        return nasc
